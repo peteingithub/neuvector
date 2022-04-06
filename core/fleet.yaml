@@ -1,0 +1,6 @@
+defaultNamespace: neuvector
+
+helm:
+  chart: ./
+  releaseName: neuvector
+
