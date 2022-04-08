@@ -1,51 +1,47 @@
-﻿apiVersion: v1
-items:
-- apiVersion: neuvector.com/v1
-  kind: NvSecurityRule
-  metadata:
-    name: nv.hello-neuvector.hello-neuvector
-    namespace: hello-neuvector
-  spec:
-    egress: []
-    file: []
-    ingress:
-    - action: allow
-      applications:
-      - HTTP
-      name: nv.hello-neuvector.hello-neuvector-ingress-0
-      ports: any
-      priority: 0
-      selector:
-        comment: ""
-        name: Workload:ingress
-        original_name: ""
-    process:
-    - action: allow
-      allow_update: false
-      name: pause
-      path: /pause
-    - action: allow
-      allow_update: false
-      name: rancher-demo
-      path: /bin/rancher-demo
-    process_profile:
-      baseline: default
-    target:
-      policymode: Protect
-      selector:
-        comment: ""
-        criteria:
-        - key: service
-          op: =
-          value: hello-neuvector.hello-neuvector
-        - key: domain
-          op: =
-          value: hello-neuvector
-        name: nv.hello-neuvector.hello-neuvector
-        original_name: ""
-    waf:
-      settings: []
-      status: true
-kind: List
-metadata: null
+﻿apiVersion: neuvector.com/v1
+kind: NvSecurityRule
+metadata:
+  name: nv.hello-neuvector.hello-neuvector
+  namespace: hello-neuvector
+spec:
+  egress: []
+  file: []
+  ingress:
+  - action: allow
+    applications:
+    - HTTP
+    name: nv.hello-neuvector.hello-neuvector-ingress-0
+    ports: any
+    priority: 0
+    selector:
+      comment: ""
+      name: Workload:ingress
+      original_name: ""
+  process:
+  - action: allow
+    allow_update: false
+    name: pause
+    path: /pause
+  - action: allow
+    allow_update: false
+    name: rancher-demo
+    path: /bin/rancher-demo
+  process_profile:
+    baseline: default
+  target:
+    policymode: Protect
+    selector:
+      comment: ""
+      criteria:
+      - key: service
+        op: =
+        value: hello-neuvector.hello-neuvector
+      - key: domain
+        op: =
+        value: hello-neuvector
+      name: nv.hello-neuvector.hello-neuvector
+      original_name: ""
+  waf:
+    settings: []
+    status: true
 
