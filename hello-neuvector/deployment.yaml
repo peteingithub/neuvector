@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-neuvector
+  namespace: hello-neuvector
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-neuvector
+  template:
+    metadata:
+      labels:
+        app: hello-neuvector
+    spec:
+      containers:
+        - name: hello-neuvector
+          image: peteindockerhub/hello-rancher:1.0.1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
+            name: web
+            protocol: TCP
+          env:
+            - name: CONTAINER_COLOR
+              value: teal
+            - name: TITLE
+              value: Hello Rancher              
+            - name: PETS
+              value: whitecows   
+          readinessProbe:
+            httpGet:
+              port: web
+              path: /
