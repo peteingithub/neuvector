@@ -11,27 +11,29 @@ helm:
 
     controller:
       image:
-        repository: neuvector/controller
+        repository: rancher/mirrored-neuvector-controller
       replicas: 1
+      ranchersso:
+        enabled: true
 
     enforcer:
       image:
-        repository: neuvector/enforcer
+        repository: rancher/mirrored-neuvector-enforcer
 
     manager:
       image:
-        repository: neuvector/manager
+        repository: rancher/mirrored-neuvector-manager
       svc:
         type: LoadBalancer
 
     cve:
       updater:
         image:
-          repository: neuvector/updater
+          repository: rancher/mirrored-neuvector-updater
       scanner:
         replicas: 1
         image:
-          repository: neuvector/scanner
+          repository: rancher/mirrored-neuvector-scanner
 
     k3s:
       enabled: true
