@@ -13,8 +13,8 @@ helm:
       image:
         repository: rancher/mirrored-neuvector-controller
       replicas: 1
-#      ranchersso:
-#        enabled: true
+      ranchersso:
+        enabled: true
 
     enforcer:
       image:
