@@ -1,0 +1,19 @@
+helm:
+  values:
+    tag: 5.0.0
+
+    controller:
+      replicas: 1
+      ranchersso:
+        enabled: true
+
+    cve:
+      scanner:
+        replicas: 1
+
+    k3s:
+      enabled: true
+
+    global:
+      cattle:
+        url: https://rancher.susedemo.com/
