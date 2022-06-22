@@ -1,0 +1,39 @@
+defaultNamespace: neuvector
+
+helm:
+  chart: core
+  repo: https://neuvector.github.io/neuvector-helm
+  version: 2.2.0 
+  releaseName: neuvector
+  values:
+    registry: docker.io 
+    tag: 5.0.0
+
+    controller:
+      image:
+        repository: neuvector/controller
+      replicas: 1
+
+    enforcer:
+      image:
+        repository: neuvector/enforcer
+
+    manager:
+      image:
+        repository: neuvector/manager
+      svc:
+        type: LoadBalancer
+
+    cve:
+      updater:
+        image:
+          repository: neuvector/updater
+      scanner:
+        replicas: 1
+        image:
+          repository: neuvector/scanner
+
+    k3s:
+      enabled: true
+      runtimePath: /run/k3s/containerd/containerd.sock
+
