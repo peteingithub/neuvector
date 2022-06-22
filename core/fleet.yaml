@@ -1,4 +1,4 @@
-defaultNamespace: cattle-neuvector-system
+defaultNamespace: neuvector
 
 helm:
   chart: core
@@ -10,36 +10,16 @@ helm:
     tag: 5.0.0
 
     controller:
-      image:
-        repository: rancher/mirrored-neuvector-controller
       replicas: 1
-      ranchersso:
-        enabled: true
-
-    enforcer:
-      image:
-        repository: rancher/mirrored-neuvector-enforcer
 
     manager:
-      image:
-        repository: rancher/mirrored-neuvector-manager
       svc:
         type: LoadBalancer
 
     cve:
-      updater:
-        image:
-          repository: rancher/mirrored-neuvector-updater
       scanner:
         replicas: 1
-        image:
-          repository: rancher/mirrored-neuvector-scanner
 
     k3s:
       enabled: true
-      runtimePath: /run/k3s/containerd/containerd.sock
     
-    global:
-      cattle:
-        url: https://rancher.susedemo.com/
-
