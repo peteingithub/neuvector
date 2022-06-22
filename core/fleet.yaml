@@ -38,4 +38,8 @@ helm:
     k3s:
       enabled: true
       runtimePath: /run/k3s/containerd/containerd.sock
+    
+    global:
+      cattle:
+        url: https://rancher.susedemo.com/
 
