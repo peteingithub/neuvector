@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: hello-neuvector
-          image: peteindockerhub/hello-rancher:1.0.1
+          image: peteindockerhub/hello-neuvector:1.0.1
           imagePullPolicy: Always
           ports:
           - containerPort: 8080
@@ -25,9 +25,9 @@ spec:
             - name: CONTAINER_COLOR
               value: teal
             - name: TITLE
-              value: Hello Rancher              
+              value: Hello NeuVector              
             - name: PETS
-              value: whitecows   
+              value: chemeleons
           readinessProbe:
             httpGet:
               port: web
