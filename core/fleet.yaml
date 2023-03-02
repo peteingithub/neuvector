@@ -3,11 +3,11 @@ defaultNamespace: neuvector
 helm:
   chart: core
   repo: https://neuvector.github.io/neuvector-helm
-  version: 2.2.0 
+  version: 2.4.2 
   releaseName: neuvector
   values:
     registry: docker.io 
-    tag: 5.0.0
+    tag: 5.1.1
 
     controller:
       replicas: 1
